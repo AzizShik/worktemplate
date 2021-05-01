@@ -1,0 +1,28 @@
+.container{
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.header__inner{
+  @include row-flex();
+}
+
+
+.header__item{
+  @include col();
+  @include size-lg(4);
+  @include size-md(6);
+  @include size-sm(12);
+  @include size-xs(12);
+  margin: 15px;
+  width: 250px;
+  height: 150px;
+  background: green;
+
+}
+.mt-item{
+  margin-top: 700px;
+  margin-bottom: 200px;
+  margin-left: 500px;
+}
