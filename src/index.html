@@ -11,16 +11,53 @@
 
 <body>
 
+  <!-- backInDown  fadeInDownBig lightSpeedInRight zoomIn slideInDown -->
+  <!-- class=" wow  animate__animated animate__fadeInLeftBig" data-wow-duration="1s" data-wow-delay="1s"
+  data-wow-offset="10" -->
+
   <h1 class="worktemplate ">WorkTemplate</h1>
 
   @@include('_parts.html')
 
+
+
+
+  <div class="modal">
+    <div class="modal__body">
+      <button class="modal__close">&times;</button>
+      <div class="modal__title">Заказать звонок прямо сейчас</div>
+      <form action="#" class="header__form form modal__form">
+        <input type="text" class="header__form-input modal__form-input" placeholder="Ваше имя" autocomplete="off"
+          data-validate-field="name" name="headername">
+        <input type="tel" class="header__form-input modal__form-input" placeholder="Ваш телефон" autocomplete="off"
+          data-validate-field="phone" name="headerphone">
+        <button class="btn header__form-btn modal__form-btn">Заказать смету</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="progress">
+  </div>
+
+  <div class="scroll-up ">
+    <svg class="scroll-up__svg" viewBox="-2 -2 52 52">
+      <path class="scroll-up__svg-path" d="
+          M24,0
+          a24,24 0 0,1 0,48
+          a24,24 0 0,1 0,-48
+      ">
+      </path>
+    </svg>
+  </div>
+
+
   <script src="vendor/inputmask.js"></script>
-  
+
   <script src="vendor/justvalidate.js"></script>
 
   <script src="js/main.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script src="vendor/wow.min.js"></script>
   <script>
     var wow = new WOW(
       {

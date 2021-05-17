@@ -1,0 +1,66 @@
+.progress{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 5px;
+  background: $main-color;
+}
+
+
+.scroll-up {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  color: #dcdcdc;
+  cursor: pointer;
+  border-radius: 50%;
+
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: inset 0 0 0 4px #dcdcdc;
+
+  transition: all .25s ease-in;
+  transform: translateY(25px);
+
+  &:hover{
+    color: orange;
+  }
+
+  &:before{
+
+    transition: all .25s ease-in;
+
+    content: '🡱';
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    font-size: 32px;
+  }
+}
+
+.scroll-up--active{
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-up__svg{
+  position: relative;
+  top: -50px;
+}
+.scroll-up__svg-path {
+  box-sizing: border-box;
+  fill: none;
+  stroke: orange;
+  stroke-width: 4px; 
+  transition: all .25s ease-in;
+}

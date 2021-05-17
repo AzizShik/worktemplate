@@ -23,6 +23,10 @@ function watch() {
   gulp.watch('./src/**/*.html', html)
   gulp.watch('./src/sass/**/*.scss', styles)
   gulp.watch('./src/js/main.js', scripts)
+  gulp.watch('./src/img/**/*.*', images)
+  gulp.watch('./src/img/**/*.*', imageToWebp)
+  gulp.watch('./src/vendor/**/*.*', vendor)
+  gulp.watch('./src/fonst/*.woff2', fonts)
   gulp.watch('./src/images/**/*.{jpg,jpeg,png,webp,svg,gif}', { usePolling: true }, images);
 }
 
@@ -41,14 +45,18 @@ function html() {
     .pipe(browserSync.stream());
 }
 
-
+function fonts() {
+  return gulp.src('./src/fonts/*.woff2')
+    .pipe(gulp.dest('./build/fonts/'))
+    .pipe(browserSync.stream());
+}
 
 function images() {
   return gulp.src('./src/img/**/*.*')
     .pipe(imagemin([
       imagemin.gifsicle({ interlaced: true }),
-      imagemin.mozjpeg({ quality: 85, progressive: true }),
-      imagemin.optipng({ optimizationLevel: 3 }),
+      imagemin.mozjpeg({ quality: 90, progressive: true }),
+      imagemin.optipng({ optimizationLevel: 2 }),
       imagemin.svgo({
         plugins: [
           { removeViewBox: true },
@@ -56,13 +64,15 @@ function images() {
         ]
       })
     ]))
-    .pipe(gulp.dest('./build/img'));
+    .pipe(gulp.dest('./build/img'))
+    .pipe(browserSync.stream());
 }
 
 function imageToWebp(done) {
   gulp.src('./src/img/**/*.*')
     .pipe(webp())
     .pipe(gulp.dest('./build/img'))
+    .pipe(browserSync.stream())
   done();
 }
 
@@ -70,6 +80,7 @@ function vendor(done) {
   gulp.src('./src/vendor/**/*.*')
     .pipe(webp())
     .pipe(gulp.dest('./build/vendor/'))
+    .pipe(browserSync.stream())
   done();
 }
 
@@ -94,7 +105,7 @@ function scripts() {
     .pipe(browserSync.stream());
 }
 
-let build = gulp.parallel(html, styles, scripts, images, imageToWebp, vendor);
+let build = gulp.parallel(html, styles, scripts, images, imageToWebp, vendor, fonts);
 let buildWithClean = gulp.series(clean, build);
 let dev = gulp.series(buildWithClean, watch);
 

@@ -1,0 +1,159 @@
+// VARS
+$main-color: #f86c26;
+$second-color: #fb2b2b;
+$text-color: #284157;
+// MIXIN
+
+$maxWidth: 1930;
+$maxWidthContainer: 1200;
+
+@mixin adaptive-value($property, $startSize, $minSize, $type){
+  $addSize: $startSize - $minSize;
+  @if $type==1 {
+    // Только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+    }
+  } @else if type==2 {
+    // Только если больше контейнера
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+  } @else {
+    // Всегда 
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td{
+  margin: 0;
+  padding: 0;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,img,abbr{
+  border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var{
+  font-style: normal;
+  font-weight: normal;
+}
+ul li{
+  list-style: none;
+}
+caption,th{
+  text-align: left;
+}
+h1,h2,h3,h4,h5,h6{
+  font-size: 100%;
+  font-weight: normal;
+}
+sup{
+  vertical-align: text-top;
+}
+sub{
+  vertical-align: text-bottom;
+}
+input,textarea,select{
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+legend{
+  color: #000;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{
+  display: block;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-image: linear-gradient( -49deg, $main-color 0%, $second-color 100%);
+  animation: btngradient 3s ease infinite;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track{
+  background: lighten(#000, 10);
+}
+
+
+
+body{
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: Geometria-Regular, sans-serif;
+  color: $text-color;
+
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.page-scroll{
+  overflow: hidden;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+  color: $text-color;
+}
+
+
+.btn{
+  background-image: linear-gradient( -49deg, $main-color 0%, $second-color 100%);
+  background-size: 200% 200%;
+  text-transform: uppercase;
+  border: none;
+  padding: 13px 26px;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  animation: btngradient 5s ease infinite;
+}
+
+@keyframes btngradient{
+  0% {
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+
+.title{
+  font-weight: 700;
+  @include adaptive-value(font-size, 30, 21, 0);
+  @include adaptive-value(padding-top, 90, 45, 0);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.descr{
+  @include adaptive-value(padding-top, 60, 35, 0);
+  @include adaptive-value(font-size, 20, 16, 0);
+  text-align: center;
+  margin: 0 auto;
+}
