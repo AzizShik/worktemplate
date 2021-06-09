@@ -15,18 +15,34 @@
   <!-- class=" wow  animate__animated animate__fadeInLeftBig" data-wow-duration="1s" data-wow-delay="1s"
   data-wow-offset="10" -->
 
-  <!-- <picture><source srcset="img/deli.webp" type="image/webp"><img width="380" height="180" src="img/deli.jpg" alt="Photo"></picture> -->
+  <!-- <div class="img loading">
+    <img width="400" height="400" alt="" data-src="img/mag1.jpg">
+  </div> -->
 
+ <header class="header">
   <h1 class="worktemplate ">WorkTemplate</h1>
+  <button class="btn modal-btn">Открыть модальное окно</button>
+ </header>
 
   @@include('_parts.html')
 
 
-  
+
+
+<div class="img loading">
+  <img width="400" height="400" alt="" data-src="img/mag1.jpg">
+</div>
+<div class="img loading">
+  <img width="400" height="400" alt="" data-src="img/mag2.jpg">
+</div>
+<div class="img loading">
+  <img width="400" height="400" alt="" data-src="img/mag3.jpg">
+</div>
 
 
 
-  <div class="modal">
+
+  <div class="modal" id="popup">
     <div class="modal__body">
       <button class="modal__close">&times;</button>
       <div class="modal__title">Заказать звонок прямо сейчас</div>
@@ -39,11 +55,8 @@
       </form>
     </div>
   </div>
-
-
   <div class="progress">
   </div>
-
   <div class="scroll-up ">
     <svg class="scroll-up__svg" viewBox="-2 -2 52 52">
       <path class="scroll-up__svg-path" d="
@@ -59,6 +72,10 @@
 
 
   <script src="vendor/jquery-3.6.0.min.js"></script>
+
+
+
+  <script src="vendor/inputmask.min.js"></script>
   <script src="js/main.min.js"></script>
   <script src="vendor/wow.min.js"></script>
   <script>
