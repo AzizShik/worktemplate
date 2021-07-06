@@ -103,6 +103,13 @@ body{
 
 .page-scroll{
   overflow: hidden;
+  padding-right: 10px;
+}
+
+@include lg-block(){
+  .page-scroll{
+    padding-right: 0px;
+  }
 }
 
 .container{
@@ -113,9 +120,66 @@ body{
 
 a{
   text-decoration: none;
-  color: $text-color;
 }
 
+
+// HOVER
+
+@media(hover: hover){
+  .header-menu__link {
+    position: relative;
+    z-index: 10;
+    transition: all .25s ease;
+    color: #fff;
+    &:hover{
+      color: #333;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      left: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      z-index: 5;
+    }
+    &:hover:before{
+      animation: menuLinkHover 1s ease forwards;
+      color: #fff;
+    }
+  }
+}
+
+// ANIMATION
+
+@keyframes menuLinkHover{
+  0%{
+      width: 0%;
+      height: 3px;
+      background: #fff;
+      z-index: 1;
+  }
+  50%{
+      width: 100%;
+      height: 3px;
+  }
+  75%{
+    width: 100%;
+    height: 120%;
+    background: #fff;
+    border-radius: 0px;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 10px rgba(#fff, 0.5);
+    z-index: -1;
+  }
+}
 
 .btn{
   background-image: linear-gradient( -49deg, $main-color 0%, $second-color 100%);
@@ -157,25 +221,6 @@ a{
   text-align: center;
   margin: 0 auto;
 }
-
-body {
-  font-family: Arial, "Helvetica Neue", Helvetica, serif;
-}
-footer {
-  padding: 20px 0;
-  text-align: center;
-}
-h1, h2 {
-  width: 100%;
-  text-align: center;
-}
-a {
-  color: #777777;
-}
-a:hover {
-  color: #999999;
-}
-
 
 
 .img {
