@@ -1,6 +1,4 @@
 
-
-
 .scroll-up {
   position: fixed;
   right: 50px;
@@ -56,4 +54,70 @@
   stroke: orange;
   stroke-width: 4px; 
   transition: all .25s ease-in;
+}
+
+
+// PRELOADER
+
+.preloader{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader__anim{
+  width: 25px;
+  height: 25px;
+  background: rgb(90, 207, 207);
+  border-radius: 2px;
+  margin: 0 30px;
+  animation: preloaderAnim 1.5s linear infinite;
+  animation-delay: 0.1s;
+}
+.preloader__anim:nth-child(2){
+  animation-delay: .25s;
+}
+.preloader__anim:nth-child(3){
+  animation-delay: 0.5s;
+}
+.preloader__anim:nth-child(4){
+  animation-delay: 0.75s;
+}
+.preloader__anim:nth-child(5){
+  animation-delay: 1s;
+}
+
+@keyframes preloaderAnim{
+  0%{
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 0 10px 1px rgba(rgb(5, 145, 126) , 1);
+    border-radius: 2px;
+
+  }
+  50%{
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 20px 3px rgba(rgb(9, 90, 211) , 0.5);
+    border-radius: 10px;
+
+  }
+  100%{
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 0 10px 1px rgba(rgb(9, 90, 211) , 0.5);
+    border-radius: 2px;
+  }
+}
+
+
+.hide-preloader{
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s ease;
 }

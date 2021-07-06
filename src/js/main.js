@@ -4,15 +4,12 @@ var im = new Inputmask("(999)-999-99-99");
 im.mask(selector);
 
 
-    //============= dynamic placeholder for images
-
     const placeholder = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
     const targets = document.querySelectorAll('[data-src]');
     targets.forEach(target => {
         target.src = placeholder;
     });
 
-    //============= IntersectionObserver
 
     const options = {
         root: null,
@@ -204,3 +201,15 @@ if(modalCloses.length > 0){
     });
   }
 }
+
+
+
+// PRELOADER
+const preloader = document.querySelector('#preloader');
+document.documentElement.classList.add('page-scroll');
+
+window.onload = function(){
+  preloader.classList.add('hide-preloader');
+  document.documentElement.classList.remove('page-scroll');
+} 
+
