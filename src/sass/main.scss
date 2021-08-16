@@ -1,11 +1,11 @@
-@import 'node_modules/normalize.css/normalize';
-
-@import "_smart-grid";
-@import '_config';
-@import "blocks/style.scss";
-@import "blocks/modal.scss";
-@import "blocks/progress.scss";
-
-@import 'node_modules/animate.css/animate.min';
+@import '../node_modules/normalize.css/normalize.css';
+@import '../node_modules/animate.css/animate.min.css';
+@import 'smart-grid.scss';
+@import 'blocks/_fonts.scss';
+@import '_config.scss';
+@import 'blocks/_progress.scss';
+@import 'blocks/_form.scss';
+@import 'blocks/_modal.scss';
+@import 'blocks/style.scss';
 
 

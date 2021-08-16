@@ -11,7 +11,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const htmlmin = require('gulp-htmlmin');
 const gcmq = require('gulp-group-css-media-queries');
 const smartgrid = require('smart-grid');
-
+const webp = require('gulp-webp');
 
 function watch() {
   browserSync.init({
@@ -24,6 +24,7 @@ function watch() {
   gulp.watch('./src/sass/**/*.scss', styles);
   gulp.watch('./src/js/main.js', scripts);
   gulp.watch('./src/img/**/*.*', images);
+  gulp.watch('./src/img/**/*.*', imagestoWebp);
   gulp.watch('./src/vendor/**/*.*', vendor);
   gulp.watch('./src/fonst/*.woff2', fonts);
   gulp.watch('./src/images/**/*.{jpg,jpeg,png,webp,svg,gif}', { usePolling: true }, images);
@@ -71,6 +72,13 @@ function images() {
     .pipe(gulp.dest('./build/img'))
     .pipe(browserSync.stream());
 }
+function imagestoWebp(done) {
+  return gulp.src('./src/img/**/*.*')
+    .pipe(webp())
+    .pipe(gulp.dest('./build/img/webp'))
+    .pipe(browserSync.stream());
+  done();
+}
 
 
 
@@ -86,9 +94,9 @@ function vendor(done) {
 
 function styles() {
   return gulp.src('./src/sass/main.scss')
-    .pipe(gcmq())
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
+    .pipe(gcmq())
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
@@ -102,7 +110,7 @@ function scripts() {
     .pipe(browserSync.stream());
 }
 
-let build = gulp.parallel(html, styles, scripts, images, vendor, fonts);
+let build = gulp.parallel(html, styles, scripts, images, vendor, fonts, imagestoWebp);
 let buildWithClean = gulp.series(clean, build);
 let dev = gulp.series(buildWithClean, watch);
 

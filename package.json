@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-webp": "^4.0.1",
     "smart-grid": "^2.1.2"
   },
   "scripts": {
