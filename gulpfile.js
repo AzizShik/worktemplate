@@ -92,7 +92,7 @@ function vendor(done) {
 
 
 
-function styles() {
+function styles(done) {
   return gulp.src('./src/sass/main.scss')
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
@@ -100,6 +100,7 @@ function styles() {
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
+    done();
 }
 
 function scripts() {

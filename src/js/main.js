@@ -14,7 +14,12 @@ modalClose.addEventListener('click', () => {
 // BURGER
 
 const burger = document.querySelector('.ham');
+const burgerMenu = document.querySelector('.header__nav');
+const burgerLinks = document.querySelectorAll('.header__link');
 
 burger.addEventListener('click', function() {
   this.classList.toggle('active-burger');
+  burgerMenu.classList.toggle('header__nav--active');
 });
+
+burgerLinks.addEventListener('click')
