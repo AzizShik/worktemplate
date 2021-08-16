@@ -17,9 +17,20 @@ const burger = document.querySelector('.ham');
 const burgerMenu = document.querySelector('.header__nav');
 const burgerLinks = document.querySelectorAll('.header__link');
 
-burger.addEventListener('click', function() {
+burger.addEventListener('click', function () {
   this.classList.toggle('active-burger');
   burgerMenu.classList.toggle('header__nav--active');
 });
 
-burgerLinks.addEventListener('click')
+function burgerLinksClose(media) {
+  if (media.matches) {
+    burgerLinks.addEventListener('click', () => {
+      burger.classList.toggle('active-burger');
+      burgerMenu.classList.toggle('header__nav--active');
+    });
+  }
+}
+
+const maxWidth991 = window.matchMedia("(max-width: 991px)");
+
+burgerLinksClose(maxWidth991);
