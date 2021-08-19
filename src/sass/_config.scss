@@ -12,59 +12,59 @@ $linkHover: rgb(187, 158, 158);
 $text: #1d262d;
 $textSecond: #fff;
 
-*{
+* {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-html{
+html {
   height: 100%;
   font-size: 10px;
 }
 
-body{
+body {
   overflow-x: hidden;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   background: $black;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
 
-
   color: $textSecond;
   font-size: 1.6rem;
 }
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.main{
+.main {
   flex: 1 1 auto;
 }
-.container{
+.container {
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 15px;
 }
 
-.title{
+.title {
   font-size: 3.2rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.descr{
+.descr {
   font-weight: 500;
   font-size: 2.4rem;
 }
 
-.btn{
+.btn {
   background: $btn;
   border: transparent;
   outline: transparent;
+  border-radius: 4px;
 
   color: $textSecond;
   padding: 15px 25px;
@@ -74,7 +74,7 @@ body{
 
   cursor: pointer;
 
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .ham {
@@ -89,23 +89,95 @@ body{
 
 
 
+.page-lock{
+  overflow-y: hidden;
+}
+
+
+
+
+@media(max-width:991px) {
+  .page-lock{
+    padding-right: 15px;
+  }
+  
+}
+
+.progress { 
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(300%);
+
+  transition: all .25s ease;
+
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  right: 50px;
+  bottom: 50px;
+  z-index: 333;
+  svg {
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    stroke-width: 50px;
+
+    path {
+      transition: all 0.25s ease;
+      z-index: 10;
+    }
+  }
+}
+
+.progress__arrow {
+  font-size: 4rem;
+  position: absolute;
+  color: yellowgreen;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  transition: all 0.25s ease;
+}
+
+
+.progress--active{
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0%);
+}
+
 @media (hover: hover) {
-  .btn:hover{
+  .btn:hover {
     background: $btnHover;
     color: $text;
   }
-  .header__link:hover{
+  .header__link:hover {
     color: $linkHover;
   }
 
-  .header__logo:hover{
-    path{
+  .header__logo:hover {
+    path {
       fill: $btnHover;
     }
   }
 
-  .modal__close:hover{
+  .modal__close:hover {
     color: #000;
     background: #fff;
   }
+
+  .progress:hover .progress__arrow{
+    color: yellow;
+  }
+
+  .progress:hover {
+    svg {
+      circle{
+        stroke: yellow;
+      }
+    }
+  }
 }
+
+

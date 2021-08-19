@@ -93,3 +93,15 @@
 .modal-open .modal__content{
   transform: translateX(0%);
 }
+
+@media(max-width: 480px) {
+  .modal__content{
+    padding: 20px;
+    
+  }
+  .modal__close{
+    width: 25px;
+    height: 25px;
+    font-size: 2.4rem;
+  }
+}

@@ -21,13 +21,15 @@ function watch() {
   });
 
   gulp.watch('./src/**/*.html', html);
-  gulp.watch('./src/sass/**/*.scss', styles);
+  gulp.watch('./src/sass/**/*.*', styles);
   gulp.watch('./src/js/main.js', scripts);
   gulp.watch('./src/img/**/*.*', images);
   gulp.watch('./src/img/**/*.*', imagestoWebp);
   gulp.watch('./src/vendor/**/*.*', vendor);
-  gulp.watch('./src/fonst/*.woff2', fonts);
-  gulp.watch('./src/images/**/*.{jpg,jpeg,png,webp,svg,gif}', { usePolling: true }, images);
+  gulp.watch('./src/fonst/*.woff', fonts);
+  gulp.watch('./src/img/**/*.{jpg,jpeg,png,webp,svg,gif}', {
+    usePolling: true
+  }, images);
 }
 
 function clean() {
@@ -40,13 +42,15 @@ function html() {
       prefix: '@@',
       basepath: '@file'
     }))
-    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(htmlmin({
+      collapseWhitespace: true
+    }))
     .pipe(gulp.dest('./build'))
     .pipe(browserSync.stream());
 }
 
 function fonts() {
-  return gulp.src('./src/fonts/*.woff2')
+  return gulp.src('./src/fonts/*.woff')
     .pipe(gulp.dest('./build/fonts/'))
     .pipe(browserSync.stream());
 }
@@ -72,12 +76,12 @@ function images() {
     .pipe(gulp.dest('./build/img'))
     .pipe(browserSync.stream());
 }
-function imagestoWebp(done) {
+
+function imagestoWebp() {
   return gulp.src('./src/img/**/*.*')
     .pipe(webp())
     .pipe(gulp.dest('./build/img/webp'))
     .pipe(browserSync.stream());
-  done();
 }
 
 
@@ -94,19 +98,28 @@ function vendor(done) {
 
 function styles(done) {
   return gulp.src('./src/sass/main.scss')
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
     .pipe(gcmq())
-    .pipe(rename({ suffix: ".min" }))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+      overrideBrowserslist: ['last 10 versions'],
+      grid: true
+    }))
+    .pipe(rename({
+      suffix: ".min"
+    }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
-    done();
+  done();
 }
 
 function scripts() {
   return gulp.src('./src/js/*.js')
     .pipe(uglify())
-    .pipe(rename({ suffix: ".min" }))
+    .pipe(rename({
+      suffix: ".min"
+    }))
     .pipe(gulp.dest('./build/js/'))
     .pipe(browserSync.stream());
 }
@@ -120,17 +133,23 @@ gulp.task('dev', dev);
 
 
 var settings = {
-  outputStyle: 'scss', /* less || scss || sass || styl */
-  columns: 12, /* number of grid columns */
-  offset: '30px', /* gutter width px || % || rem */
-  mobileFirst: false, /* mobileFirst ? 'min-width' : 'max-width' */
+  outputStyle: 'scss',
+  /* less || scss || sass || styl */
+  columns: 12,
+  /* number of grid columns */
+  offset: '30px',
+  /* gutter width px || % || rem */
+  mobileFirst: false,
+  /* mobileFirst ? 'min-width' : 'max-width' */
   container: {
-    maxWidth: '1200px', /* max-width оn very large screen */
+    maxWidth: '1200px',
+    /* max-width оn very large screen */
     fields: '30px' /* side fields */
   },
   breakPoints: {
     lg: {
-      width: '1100px', /* -> @media (max-width: 1100px) */
+      width: '1100px',
+      /* -> @media (max-width: 1100px) */
     },
     md: {
       width: '960px'
