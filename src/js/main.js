@@ -91,3 +91,14 @@ progressLink.addEventListener('click', () => {
     behavior: 'smoot',
   });
 });
+
+
+// Preloader
+
+// const preloader = document.querySelector('.preloader');
+// document.documentElement.style.overflow = 'hidden';
+
+// window.onload = () => {
+//   preloader.classList.remove('preloader--active');
+//   document.documentElement.style.overflow = 'auto';
+// }

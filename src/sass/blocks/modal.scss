@@ -20,7 +20,7 @@
   min-height: 100vh;
 }
 .modal__content {
-  transform: translateX(-100%);
+  transform: translateX(-100%) scale(0.7);
   transition: all .4s ease;
 
   display: flex;
@@ -91,7 +91,9 @@
 }
 
 .modal-open .modal__content{
-  transform: translateX(0%);
+  transform: translateX(0%) scale(1);
+
+  
 }
 
 @media(max-width: 480px) {
