@@ -16,12 +16,12 @@ const webp = require('gulp-webp');
 function watch() {
   browserSync.init({
     server: {
-      baseDir: "./build"
+      baseDir: "./build/"
     }
   });
 
   gulp.watch('./src/**/*.html', html);
-  gulp.watch('./src/sass/**/*.*', styles);
+  gulp.watch('./src/sass/**/*.scss', styles);
   gulp.watch('./src/js/main.js', scripts);
   gulp.watch('./src/img/**/*.*', images);
   gulp.watch('./src/img/**/*.*', imagestoWebp);
@@ -99,9 +99,12 @@ function vendor(done) {
 function styles(done) {
   return gulp.src('./src/sass/main.scss')
     .pipe(gcmq())
+
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
+
+
     .pipe(autoprefixer({
       overrideBrowserslist: ['last 10 versions'],
       grid: true
@@ -111,7 +114,7 @@ function styles(done) {
     }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
-  done();
+    done();
 }
 
 function scripts() {

@@ -39,8 +39,8 @@ function burgerLinksClose(media) {
   if (media.matches) {
     burgerLinks.forEach(item => {
       item.addEventListener('click', (e) => {
-        burger.classList.toggle('active-burger');
-        burgerMenu.classList.toggle('header__nav--active');
+        burger.classList.remove('active-burger');
+        burgerMenu.classList.remove('header__nav--active');
       });
     });
   }
@@ -52,7 +52,7 @@ const maxWidth991 = window.matchMedia("(max-width: 991px)");
 burgerLinksClose(maxWidth991);
 
 
-// Smooth Scroll UP
+// Progress
 
 const progress = document.querySelector('.progress')
 const progressLink = document.querySelector('.progress__link')
