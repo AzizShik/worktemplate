@@ -3,8 +3,8 @@ const del = require('del');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 const fileinclude = require('gulp-file-include');
-// const imagemin = require('gulp-imagemin');
-const tinypng = require('gulp-tinypng-compress');
+const imagemin = require('gulp-imagemin');
+// const tinypng = require('gulp-tinypng-compress');
 const rename = require("gulp-rename");
 const uglify = require('gulp-uglify');
 const autoprefixer = require('gulp-autoprefixer');
@@ -57,22 +57,22 @@ function fonts() {
 
 function images() {
   return gulp.src('./src/img/**/*.*')
-    // .pipe(imagemin([
-    //   imagemin.gifsicle({ interlaced: true }),
-    //   imagemin.mozjpeg({ quality: 75, progressive: true }),
-    //   imagemin.optipng({ optimizationLevel: 2 }),
-    //   imagemin.svgo({
-    //     plugins: [
-    //       { removeViewBox: true },
-    //       { cleanupIDs: false }
-    //     ]
-    //   })
-    // ]))
-    .pipe(tinypng({
-      key: 'kDQcHvzsCsjCH02LjsCnYGGMkB1t2JGQ',
-      sigFile: 'images/.tinypng-sigs',
-      log: true
-    }))
+    .pipe(imagemin([
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.mozjpeg({ quality: 75, progressive: true }),
+      imagemin.optipng({ optimizationLevel: 2 }),
+      imagemin.svgo({
+        plugins: [
+          { removeViewBox: true },
+          { cleanupIDs: false }
+        ]
+      })
+    ]))
+    // .pipe(tinypng({
+    //   key: 'kDQcHvzsCsjCH02LjsCnYGGMkB1t2JGQ',
+    //   sigFile: 'images/.tinypng-sigs',
+    //   log: true
+    // }))
     .pipe(gulp.dest('./build/img'))
     .pipe(browserSync.stream());
 }
@@ -92,8 +92,6 @@ function vendor(done) {
     .pipe(browserSync.stream());
   done();
 }
-
-
 
 
 function styles(done) {
