@@ -96,12 +96,11 @@ function vendor(done) {
 
 function styles(done) {
   return gulp.src('./src/sass/main.scss')
-    .pipe(gcmq())
 
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
-
+    .pipe(gcmq())
 
     .pipe(autoprefixer({
       overrideBrowserslist: ['last 10 versions'],

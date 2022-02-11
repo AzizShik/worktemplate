@@ -1,12 +1,11 @@
-@import '../vendor/normalize.css';
-// @import '../vendor/animate.css';
-// @import '../vendor/aos.css';
+@import "../vendor/normalize.css";
+@import '../vendor/animate.css';
+@import '../vendor/aos.css';
 
-@import 'smart-grid.scss';
-@import 'blocks/fonts.scss';
-@import '_config.scss';
-@import 'blocks/form.scss';
-@import 'blocks/modal.scss';
-@import 'blocks/style.scss';
-
-
+@import "smart-grid.scss";
+@import "blocks/fonts.scss";
+@import "_config.scss";
+@import "blocks/_form.scss";
+@import "blocks/_header.scss";
+@import "blocks/_modal.scss";
+@import "blocks/_style.scss";
