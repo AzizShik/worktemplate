@@ -5,6 +5,7 @@ $dark: #121212;
 $main: #fed201;
 $second: #f38f05;
 $formBg: #353535;
+$sliderBg: #eaeef2;
 $btn: #377850;
 
 $textColor: #1d262d;
@@ -70,6 +71,12 @@ a {
 
 body.lock {
   overflow-y: hidden;
+}
+
+@media (min-width: 991px) {
+  body.lock {
+    padding-right: 17px;
+  }
 }
 
 .wrapper {

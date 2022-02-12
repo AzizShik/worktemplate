@@ -102,6 +102,15 @@ button {
 
 .template {
   background: $second;
+  min-height: calc(100vh - 98px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
 }
 
 .template__title {
@@ -109,9 +118,5 @@ button {
   font-size: 4.8rem;
   text-transform: uppercase;
   font-weight: 500;
-  min-height: calc(100vh - 98px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #fff;
 }
