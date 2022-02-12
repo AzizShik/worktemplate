@@ -1,11 +1,13 @@
 @import "../vendor/normalize.css";
-@import '../vendor/animate.css';
-@import '../vendor/aos.css';
+// @import '../vendor/animate.css';
+// @import '../vendor/aos.css';
+@import url('../vendor//swiper.bundle.css');
 
 @import "smart-grid.scss";
 @import "blocks/fonts.scss";
 @import "_config.scss";
 @import "blocks/_form.scss";
 @import "blocks/_header.scss";
+@import "blocks/_slider.scss";
 @import "blocks/_modal.scss";
 @import "blocks/_style.scss";

@@ -1,8 +1,6 @@
 @import url(../vendor/normalize.css);
 
-@import url(../vendor/animate.css);
-
-@import url(../vendor/aos.css);
+@import url("../vendor//swiper.bundle.css");
 
 @font-face {
   font-family: "Roboto";
@@ -60,7 +58,7 @@ html {
 body {
   overflow-x: hidden;
   background: #fdfdfd;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #1d262d;
@@ -122,9 +120,90 @@ body.lock {
   font-size: 16px;
   text-transform: uppercase;
   background: #fed201;
-  -webkit-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  color: #1d262d;
+}
+
+.form {
+  padding-bottom: 7rem;
+  background-image: url("../img/quote.jpg");
+  background-size: 60% 725px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-color: #353535;
+}
+
+.form .title {
+  color: #fff;
+}
+
+.form .btn {
+  color: #fff;
+}
+
+.form__title {
+  margin-bottom: 40px;
+}
+
+.form__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form__body-input {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 2px solid grey;
+}
+
+.form__body-message {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  resize: none;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.form .btn {
+  max-width: 320px;
+}
+
+.form__body-thanks {
+  font-size: 2.1rem;
+  margin-top: 20px;
+  max-width: 280px;
+}
+
+.form__body-input--danger {
+  border: 2px solid red;
+  -webkit-box-shadow: 0 3px 6px rgba(255,0,0,0.22),0 3px 6px rgba(255,0,0,0.23);
+          box-shadow: 0 3px 6px rgba(255,0,0,0.22),0 3px 6px rgba(255,0,0,0.23);
 }
 
 .header {
@@ -328,6 +407,42 @@ body.lock {
   }
 }
 
+.slider {
+  padding-bottom: 7rem;
+}
+
+.slider__inner {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.swiper {
+  position: relative;
+}
+
+.swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 500px;
+}
+
+.swiper-slide img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 body,
 div,
 dl,
@@ -439,7 +554,68 @@ img {
   height: auto;
 }
 
+button {
+  border: none;
+}
+
+.template {
+  background: #f38f05;
+}
+
+.template__title {
+  text-align: center;
+  font-size: 4.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  min-height: calc(100vh - 98px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
 @media (max-width: 991px) {
+  html {
+    font-size: 9px;
+  }
+
+  .form {
+    background-image: url("");
+  }
+
+  .form__body {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: none;
+  }
+
+  .form__body {
+    max-width: none;
+  }
+
+  .form__body-input {
+    max-width: 100%;
+  }
+
+  .form__body-message {
+    max-width: 100%;
+  }
+
+  .form .btn {
+    max-width: 100%;
+    width: 100%;
+  }
+
   .header__burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -475,10 +651,26 @@ img {
   }
 }
 
+@media (max-width: 767px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 7px;
+  }
+}
+
 @media (hover: hover) {
   .btn:hover {
     -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19),0 6px 6px rgba(0,0,0,0.23);
             box-shadow: 0 10px 20px rgba(0,0,0,0.19),0 6px 6px rgba(0,0,0,0.23);
+    background: #fedb34;
+  }
+
+  .btn:active {
     -webkit-transform: scale(0.95);
         -ms-transform: scale(0.95);
             transform: scale(0.95);

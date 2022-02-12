@@ -1,0 +1,30 @@
+.slider {
+  padding-bottom: 7rem;
+}
+
+.slider__inner {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.swiper {
+  position: relative;
+}
+
+.swiper-wrapper{
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

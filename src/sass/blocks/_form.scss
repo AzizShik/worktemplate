@@ -1,0 +1,98 @@
+.form {
+  padding-bottom: 7rem;
+  background-image: url('../img/quote.jpg');
+  background-size: 60% 725px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-color: $formBg;
+  .title {
+    color: #fff;
+  }
+  .btn {
+    color: #fff;
+  }
+}
+
+.container {
+}
+
+.form__inner {
+}
+
+.form__title {
+  margin-bottom: 40px;
+}
+
+.form__body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form__body-input {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 2px solid grey;
+}
+
+.form__body-message {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  resize: none;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.form {
+  .btn {
+    max-width: 320px;
+  }
+}
+
+.form__body-thanks {
+  font-size: 2.1rem;
+  margin-top: 20px;
+  max-width: 280px;
+}
+
+.form__body-input--danger {
+  border: 2px solid red;
+  box-shadow: 0 3px 6px rgba(255, 0, 0, 0.22), 0 3px 6px rgba(255, 0, 0, 0.23);
+}
+
+@media (max-width: 991px) {
+  .form {
+    background-image: url('');
+  }
+  .form__body {
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+  }
+  .form__body {
+    max-width: none;
+  }
+  .form__body-input {
+    max-width: 100%;
+  }
+
+  .form__body-message {
+    max-width: 100%;
+  }
+
+  .form {
+    .btn {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+
