@@ -409,16 +409,61 @@ body.lock {
 
 .slider {
   padding-bottom: 7rem;
-  background: #eaeef2;
+  background: #b3b3b3;
 }
 
 .slider__inner {
   position: relative;
-  overflow-x: hidden;
+}
+
+.slider__title {
+  color: #fff;
 }
 
 .swiper {
   position: relative;
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  bottom: -50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  background: #fed201;
+  margin: 5px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #f38f05;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 65%;
+}
+
+.swiper-button-next {
+  right: -60px;
+}
+
+.swiper-button-prev {
+  left: -60px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #f38f05;
 }
 
 .swiper-slide {

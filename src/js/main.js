@@ -65,8 +65,6 @@ window.addEventListener('load', () => {
   }
 
 
-
-
   const formEl = document.querySelector('.form__body'),
     formInputs = document.querySelectorAll('.form__body-input');
 
@@ -107,12 +105,14 @@ window.addEventListener('load', () => {
       formEl.insertAdjacentElement('afterend', formSubmit);
     }
   }
+  
 
   const swiper = new Swiper('.swiper', {
     loop: true,
+
     pagination: {
       el: '.swiper-pagination',
-
+      clickable: true,
     },
 
     navigation: {

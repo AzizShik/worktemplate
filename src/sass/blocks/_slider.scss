@@ -5,14 +5,55 @@
 
 .slider__inner {
   position: relative;
-  overflow-x: hidden;
+}
+
+.slider__title {
+  color: #fff;
 }
 
 .swiper {
   position: relative;
 }
 
-.swiper-wrapper{
+.slider__wrapper {
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  background: $main;
+  margin: 5px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: $second;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  top: 65%;
+}
+
+.swiper-button-next {
+  right: -60px;
+}
+
+.swiper-button-prev {
+  left: -60px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  color: $second;
 }
 
 .swiper-slide {
